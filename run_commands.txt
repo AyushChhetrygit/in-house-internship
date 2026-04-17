@@ -1,0 +1,149 @@
+# Commands to Run the Amazon Customer Analytics Pipeline
+
+This document contains step-by-step instructions to run the entire project, including the data generation/machine learning pipeline and the full-stack web dashboard.
+
+---
+
+### Step 1: Set up the Python Environment (Data & ML Pipeline)
+Open a new terminal at the root directory of the project.
+
+```bash
+# 1. Activate the virtual environment
+source venv/bin/activate
+
+# (If venv is not initialized, you can create it and install dependencies)
+# python3 -m venv venv
+# source venv/bin/activate
+# pip install pandas numpy scikit-learn boto3 jupyter
+
+# 2. Generate raw synthetic data
+python synthetic_data_generator.py
+
+# 3. Run the ML pipeline (to process the data and create data/processed/customer_processed.csv)
+python ml_pipeline.py
+```
+
+*(Optional) Continuous data generation to AWS S3 using Jupyter:*
+```bash
+jupyter notebook jupyter_scheduler.ipynb
+# Then run the cells within the notebook to start uploading continuously.
+```
+
+---
+
+### Step 2: Start the Backend API Server
+Open a second terminal.
+
+```bash
+# 1. Navigate to the server folder
+cd server
+
+# 2. Install dependencies
+npm install
+
+# 3. Start the node express server
+npm start or npm run dev
+```
+The backend server will start on `http://localhost:5000` and load the processed CSV data.
+
+---
+
+### Step 3: Start the Frontend React Client
+Open a third terminal.
+
+```bash
+# 1. Navigate to the client folder
+cd client
+
+# 2. Install dependencies
+npm install
+
+# 3. Start the React/Vite application
+npm run dev
+```
+The application will be accessible at `http://localhost:5173`.
+
+---
+
+### Common Errors, Test Cases, and Fixes
+
+#### Error 1: Missing Python Dependencies
+**Symptom / Test Case:** Running `python synthetic_data_generator.py` returns `ModuleNotFoundError: No module named 'pandas'`.
+**Why it happens:** The python virtual environment is not activated or dependencies are missing.
+**Fix Command:** 
+```bash
+source venv/bin/activate
+pip install pandas numpy scikit-learn boto3 jupyter
+```
+
+#### Error 2: Missing Node.js Modules
+**Symptom / Test Case:** Running `npm start` in the `server` or `client` throws an error like `Error: Cannot find module 'express'` or `vite: command not found`.
+**Why it happens:** The local npm packages have not been installed in the respective directories.
+**Fix Command:** 
+```bash
+# Assuming you are in the server or client directory
+npm install
+```
+
+#### Error 3: No Raw Data for the ML Pipeline
+**Symptom / Test Case:** Running `python ml_pipeline.py` prints `❌ No raw data found` and exits without creating `customer_processed.csv`.
+**Why it happens:** The machine learning script needs the raw data to process, but it was not generated.
+**Fix Command:** 
+```bash
+# Run the synthetic data generator first!
+python synthetic_data_generator.py
+python ml_pipeline.py
+```
+
+#### Error 4: S3 Uploader Import Error in Jupyter Notebook
+**Symptom / Test Case:** Executing Cell 1 in `jupyter_scheduler.ipynb` throws `ModuleNotFoundError: No module named 's3_uploader'`.
+**Why it happens:** The notebook is trying to load `s3_uploader`, but the actual python file in the project directory is named `s3_upload.py`.
+**Fix Command:** 
+```bash
+# Rename the file to match the import code in the notebook
+mv s3_upload.py s3_uploader.py
+```
+
+#### Error 5: Port Already in Use (Backend)
+**Symptom / Test Case:** Running `npm start` in the `server` directory throws `Error: listen EADDRINUSE: address already in use :::5000`.
+**Why it happens:** Another application or a previous instance of your server is already running on port 5000.
+**Fix Command:** 
+```bash
+# On Mac/Linux, find the process using the port and kill it
+lsof -i :5000
+kill -9 <PID_OF_THE_PROCESS>
+```
+
+#### Error 6: AWS S3 Access Denied / Invalid Credentials
+**Symptom / Test Case:** Running `python s3_upload.py` or the Jupyter notebook scheduler fails with a `boto3` or `botocore.exceptions.NoCredentialsError`.
+**Why it happens:** You have not configured the AWS keys in `config.py`.
+**Fix Command:** 
+Update `config.py` in the root directory:
+```python
+# Replace placeholders with your real credentials:
+AWS_ACCESS_KEY_ID = 'your_actual_access_key'
+AWS_SECRET_ACCESS_KEY = 'your_actual_secret_key'
+```
+
+---
+
+### Step 4: Stopping the Application
+
+To cleanly shut down the various servers and scripts when you are finished:
+
+**1. Stop Foreground Processes**
+Go to each of the terminal windows you opened (React client, Node backend, Python/Jupyter scripts) and press:
+`Ctrl + C`
+
+**2. Force Kill Background Processes (If hanging)**
+If any processes are hanging or were started in the background, you can force stop them with these commands:
+```bash
+# Kill the React/Vite development server
+pkill -f "vite"
+
+# Kill the Node.js backend server
+pkill -f "node index.js"
+
+# Kill any lingering Python or Jupyter servers
+pkill -f "jupyter"
+```

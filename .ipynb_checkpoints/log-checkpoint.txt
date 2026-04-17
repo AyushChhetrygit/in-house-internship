@@ -1,0 +1,362 @@
+  CustomerID  AccountAgeMonths  ...  DiscountUsage          GeneratedAt
+0     C00001                36  ...            Low  2026-04-07 11:12:01
+1     C00002                52  ...           High  2026-04-07 11:12:01
+2     C00003                50  ...            Low  2026-04-07 11:12:01
+3     C00004                54  ...            Low  2026-04-07 11:12:01
+4     C00005                43  ...            Low  2026-04-07 11:12:01
+
+[5 rows x 11 columns]
+
+✅ Data saved to data/raw/customer_data.csv
+  CustomerID  AccountAgeMonths  ...  DiscountUsage          GeneratedAt
+0     C00001                 2  ...           High  2026-04-07 11:13:02
+1     C00002                57  ...            Low  2026-04-07 11:13:02
+2     C00003                23  ...            Low  2026-04-07 11:13:02
+3     C00004                59  ...            Low  2026-04-07 11:13:02
+4     C00005                22  ...         Medium  2026-04-07 11:13:02
+
+[5 rows x 11 columns]
+
+✅ Data saved to data/raw/customer_data.csv
+  CustomerID  AccountAgeMonths  ...  DiscountUsage          GeneratedAt
+0     C00001                17  ...            Low  2026-04-07 11:14:01
+1     C00002                34  ...         Medium  2026-04-07 11:14:01
+2     C00003                12  ...           High  2026-04-07 11:14:01
+3     C00004                49  ...            Low  2026-04-07 11:14:01
+4     C00005                10  ...           High  2026-04-07 11:14:01
+
+[5 rows x 11 columns]
+
+✅ Data saved to data/raw/customer_data.csv
+  CustomerID  AccountAgeMonths  ...  DiscountUsage          GeneratedAt
+0     C00001                29  ...           High  2026-04-07 11:15:01
+1     C00002                22  ...           High  2026-04-07 11:15:01
+2     C00003                39  ...            Low  2026-04-07 11:15:01
+3     C00004                41  ...           High  2026-04-07 11:15:01
+4     C00005                10  ...           High  2026-04-07 11:15:01
+
+[5 rows x 11 columns]
+
+✅ Data saved to data/raw/customer_data.csv
+  CustomerID  AccountAgeMonths  ...  DiscountUsage          GeneratedAt
+0     C00001                 8  ...           High  2026-04-07 11:16:01
+1     C00002                31  ...            Low  2026-04-07 11:16:01
+2     C00003                14  ...         Medium  2026-04-07 11:16:01
+3     C00004                50  ...            Low  2026-04-07 11:16:01
+4     C00005                15  ...            Low  2026-04-07 11:16:01
+
+[5 rows x 11 columns]
+
+✅ Data saved to data/raw/customer_data.csv
+  CustomerID  AccountAgeMonths  ...  DiscountUsage          GeneratedAt
+0     C00001                31  ...            Low  2026-04-07 11:17:01
+1     C00002                 4  ...            Low  2026-04-07 11:17:01
+2     C00003                26  ...            Low  2026-04-07 11:17:01
+3     C00004                23  ...         Medium  2026-04-07 11:17:01
+4     C00005                53  ...            Low  2026-04-07 11:17:01
+
+[5 rows x 11 columns]
+
+✅ Data saved to data/raw/customer_data.csv
+  CustomerID  AccountAgeMonths  ...  DiscountUsage          GeneratedAt
+0     C00001                59  ...           High  2026-04-07 11:18:01
+1     C00002                38  ...         Medium  2026-04-07 11:18:01
+2     C00003                39  ...         Medium  2026-04-07 11:18:01
+3     C00004                51  ...            Low  2026-04-07 11:18:01
+4     C00005                50  ...         Medium  2026-04-07 11:18:01
+
+[5 rows x 11 columns]
+
+✅ Data saved to data/raw/customer_data.csv
+  CustomerID  AccountAgeMonths  ...  DiscountUsage          GeneratedAt
+0     C00001                22  ...           High  2026-04-07 11:19:00
+1     C00002                55  ...         Medium  2026-04-07 11:19:00
+2     C00003                52  ...         Medium  2026-04-07 11:19:00
+3     C00004                47  ...           High  2026-04-07 11:19:00
+4     C00005                11  ...            Low  2026-04-07 11:19:00
+
+[5 rows x 11 columns]
+
+✅ Data saved to data/raw/customer_data.csv
+  CustomerID  AccountAgeMonths  ...  DiscountUsage          GeneratedAt
+0     C00001                56  ...         Medium  2026-04-07 11:26:01
+1     C00002                48  ...            Low  2026-04-07 11:26:01
+2     C00003                46  ...           High  2026-04-07 11:26:01
+3     C00004                57  ...         Medium  2026-04-07 11:26:01
+4     C00005                 7  ...            Low  2026-04-07 11:26:01
+
+[5 rows x 11 columns]
+Traceback (most recent call last):
+  File "/Users/ayushchhetry/inhouse project/synthetic_data_generator.py", line 105, in <module>
+    df.to_csv(output_path, index=False)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ayushchhetry/inhouse project/venv/lib/python3.14/site-packages/pandas/core/generic.py", line 3988, in to_csv
+    return DataFrameRenderer(formatter).to_csv(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        path_or_buf,
+        ^^^^^^^^^^^^
+    ...<14 lines>...
+        storage_options=storage_options,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/ayushchhetry/inhouse project/venv/lib/python3.14/site-packages/pandas/io/formats/format.py", line 1025, in to_csv
+    csv_formatter.save()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "/Users/ayushchhetry/inhouse project/venv/lib/python3.14/site-packages/pandas/io/formats/csvs.py", line 251, in save
+    with get_handle(
+         ~~~~~~~~~~^
+        self.filepath_or_buffer,
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        storage_options=self.storage_options,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ) as handles:
+    ^
+  File "/Users/ayushchhetry/inhouse project/venv/lib/python3.14/site-packages/pandas/io/common.py", line 793, in get_handle
+    check_parent_directory(str(handle))
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/ayushchhetry/inhouse project/venv/lib/python3.14/site-packages/pandas/io/common.py", line 652, in check_parent_directory
+    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
+OSError: Cannot save file into a non-existent directory: ''/Users/ayushchhetry/inhouse project/data/raw'
+  CustomerID  AccountAgeMonths  ...  DiscountUsage          GeneratedAt
+0     C00001                30  ...           High  2026-04-07 11:27:01
+1     C00002                25  ...            Low  2026-04-07 11:27:01
+2     C00003                 5  ...            Low  2026-04-07 11:27:01
+3     C00004                40  ...         Medium  2026-04-07 11:27:01
+4     C00005                58  ...         Medium  2026-04-07 11:27:01
+
+[5 rows x 11 columns]
+Traceback (most recent call last):
+  File "/Users/ayushchhetry/inhouse project/synthetic_data_generator.py", line 105, in <module>
+    df.to_csv(output_path, index=False)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ayushchhetry/inhouse project/venv/lib/python3.14/site-packages/pandas/core/generic.py", line 3988, in to_csv
+    return DataFrameRenderer(formatter).to_csv(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        path_or_buf,
+        ^^^^^^^^^^^^
+    ...<14 lines>...
+        storage_options=storage_options,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/ayushchhetry/inhouse project/venv/lib/python3.14/site-packages/pandas/io/formats/format.py", line 1025, in to_csv
+    csv_formatter.save()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "/Users/ayushchhetry/inhouse project/venv/lib/python3.14/site-packages/pandas/io/formats/csvs.py", line 251, in save
+    with get_handle(
+         ~~~~~~~~~~^
+        self.filepath_or_buffer,
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        storage_options=self.storage_options,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ) as handles:
+    ^
+  File "/Users/ayushchhetry/inhouse project/venv/lib/python3.14/site-packages/pandas/io/common.py", line 793, in get_handle
+    check_parent_directory(str(handle))
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/ayushchhetry/inhouse project/venv/lib/python3.14/site-packages/pandas/io/common.py", line 652, in check_parent_directory
+    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
+OSError: Cannot save file into a non-existent directory: ''/Users/ayushchhetry/inhouse project/data/raw'
+  CustomerID  AccountAgeMonths  ...  DiscountUsage          GeneratedAt
+0     C00001                50  ...         Medium  2026-04-07 11:28:01
+1     C00002                 8  ...         Medium  2026-04-07 11:28:01
+2     C00003                47  ...           High  2026-04-07 11:28:01
+3     C00004                54  ...            Low  2026-04-07 11:28:01
+4     C00005                25  ...         Medium  2026-04-07 11:28:01
+
+[5 rows x 11 columns]
+
+✅ Data saved to data/raw/customer_data.csv
+  CustomerID  AccountAgeMonths  ...  DiscountUsage          GeneratedAt
+0     C00001                11  ...           High  2026-04-07 11:29:01
+1     C00002                29  ...            Low  2026-04-07 11:29:01
+2     C00003                 4  ...            Low  2026-04-07 11:29:01
+3     C00004                29  ...         Medium  2026-04-07 11:29:01
+4     C00005                39  ...            Low  2026-04-07 11:29:01
+
+[5 rows x 11 columns]
+
+✅ Data saved to data/raw/customer_data.csv
+  CustomerID  AccountAgeMonths  ...  DiscountUsage          GeneratedAt
+0     C00001                46  ...            Low  2026-04-07 11:30:01
+1     C00002                55  ...         Medium  2026-04-07 11:30:01
+2     C00003                33  ...           High  2026-04-07 11:30:01
+3     C00004                 5  ...            Low  2026-04-07 11:30:01
+4     C00005                24  ...            Low  2026-04-07 11:30:01
+
+[5 rows x 11 columns]
+
+✅ Data saved to data/raw/customer_data.csv
+  CustomerID  AccountAgeMonths  ...  DiscountUsage          GeneratedAt
+0     C00001                14  ...            Low  2026-04-07 11:31:01
+1     C00002                12  ...            Low  2026-04-07 11:31:01
+2     C00003                26  ...           High  2026-04-07 11:31:01
+3     C00004                46  ...         Medium  2026-04-07 11:31:01
+4     C00005                51  ...         Medium  2026-04-07 11:31:01
+
+[5 rows x 11 columns]
+
+✅ Data saved to data/raw/customer_data.csv
+  CustomerID  AccountAgeMonths  ...  DiscountUsage          GeneratedAt
+0     C00001                53  ...            Low  2026-04-07 11:32:01
+1     C00002                51  ...            Low  2026-04-07 11:32:01
+2     C00003                41  ...            Low  2026-04-07 11:32:01
+3     C00004                10  ...            Low  2026-04-07 11:32:01
+4     C00005                26  ...            Low  2026-04-07 11:32:01
+
+[5 rows x 11 columns]
+
+✅ Data saved to data/raw/customer_data.csv
+  CustomerID  AccountAgeMonths  ...  DiscountUsage          GeneratedAt
+0     C00011                 8  ...         Medium  2026-04-07 11:36:01
+1     C00012                39  ...            Low  2026-04-07 11:36:01
+2     C00013                17  ...            Low  2026-04-07 11:36:01
+3     C00014                 5  ...            Low  2026-04-07 11:36:01
+4     C00015                56  ...         Medium  2026-04-07 11:36:01
+
+[5 rows x 11 columns]
+
+✅ Data saved to data/raw/customer_data.csv
+  CustomerID  AccountAgeMonths  ...  DiscountUsage          GeneratedAt
+0     C00021                49  ...            Low  2026-04-07 11:37:01
+1     C00022                25  ...            Low  2026-04-07 11:37:01
+2     C00023                28  ...         Medium  2026-04-07 11:37:01
+3     C00024                52  ...            Low  2026-04-07 11:37:01
+4     C00025                48  ...         Medium  2026-04-07 11:37:01
+
+[5 rows x 11 columns]
+
+✅ Data saved to data/raw/customer_data.csv
+  CustomerID  AccountAgeMonths  ...  DiscountUsage          GeneratedAt
+0     C00031                59  ...         Medium  2026-04-07 11:38:01
+1     C00032                17  ...           High  2026-04-07 11:38:01
+2     C00033                27  ...         Medium  2026-04-07 11:38:01
+3     C00034                28  ...           High  2026-04-07 11:38:01
+4     C00035                15  ...            Low  2026-04-07 11:38:01
+
+[5 rows x 11 columns]
+
+✅ Data saved to data/raw/customer_data.csv
+  CustomerID  AccountAgeMonths  ...  DiscountUsage          GeneratedAt
+0     C00041                12  ...           High  2026-04-07 12:09:02
+1     C00042                16  ...         Medium  2026-04-07 12:09:02
+2     C00043                49  ...           High  2026-04-07 12:09:02
+3     C00044                 8  ...           High  2026-04-07 12:09:02
+4     C00045                48  ...            Low  2026-04-07 12:09:02
+
+[5 rows x 11 columns]
+
+✅ Data saved to data/raw/customer_data.csv
+  CustomerID  AccountAgeMonths  ...  DiscountUsage          GeneratedAt
+0     C00051                41  ...         Medium  2026-04-07 12:10:01
+1     C00052                50  ...            Low  2026-04-07 12:10:01
+2     C00053                 9  ...            Low  2026-04-07 12:10:01
+3     C00054                31  ...         Medium  2026-04-07 12:10:01
+4     C00055                10  ...         Medium  2026-04-07 12:10:01
+
+[5 rows x 11 columns]
+
+✅ Data saved to data/raw/customer_data.csv
+  CustomerID  AccountAgeMonths  ...  DiscountUsage          GeneratedAt
+0     C00061                19  ...         Medium  2026-04-07 12:11:01
+1     C00062                 7  ...         Medium  2026-04-07 12:11:01
+2     C00063                56  ...         Medium  2026-04-07 12:11:01
+3     C00064                32  ...         Medium  2026-04-07 12:11:01
+4     C00065                55  ...         Medium  2026-04-07 12:11:01
+
+[5 rows x 11 columns]
+
+✅ Data saved to data/raw/customer_data.csv
+  CustomerID  AccountAgeMonths  ...  DiscountUsage          GeneratedAt
+0     C00071                54  ...         Medium  2026-04-07 12:12:01
+1     C00072                 1  ...            Low  2026-04-07 12:12:01
+2     C00073                44  ...            Low  2026-04-07 12:12:01
+3     C00074                59  ...            Low  2026-04-07 12:12:01
+4     C00075                 6  ...         Medium  2026-04-07 12:12:01
+
+[5 rows x 11 columns]
+
+✅ Data saved to data/raw/customer_data.csv
+  CustomerID  AccountAgeMonths  ...  DiscountUsage          GeneratedAt
+0     C00081                33  ...            Low  2026-04-07 12:13:00
+1     C00082                16  ...           High  2026-04-07 12:13:00
+2     C00083                 9  ...            Low  2026-04-07 12:13:00
+3     C00084                54  ...         Medium  2026-04-07 12:13:00
+4     C00085                 3  ...         Medium  2026-04-07 12:13:00
+
+[5 rows x 11 columns]
+
+✅ Data saved to data/raw/customer_data.csv
+  CustomerID  AccountAgeMonths  ...  DiscountUsage          GeneratedAt
+0     C00091                50  ...           High  2026-04-07 12:14:01
+1     C00092                29  ...         Medium  2026-04-07 12:14:01
+2     C00093                58  ...           High  2026-04-07 12:14:01
+3     C00094                13  ...            Low  2026-04-07 12:14:01
+4     C00095                27  ...           High  2026-04-07 12:14:01
+
+[5 rows x 11 columns]
+
+✅ Data saved to data/raw/customer_data.csv
+  CustomerID  AccountAgeMonths  ...  DiscountUsage          GeneratedAt
+0     C00101                22  ...         Medium  2026-04-07 12:15:01
+1     C00102                 3  ...         Medium  2026-04-07 12:15:01
+2     C00103                 1  ...           High  2026-04-07 12:15:01
+3     C00104                 2  ...           High  2026-04-07 12:15:01
+4     C00105                40  ...            Low  2026-04-07 12:15:01
+
+[5 rows x 11 columns]
+
+✅ Data saved to data/raw/customer_data.csv
+  CustomerID  AccountAgeMonths  ...  DiscountUsage          GeneratedAt
+0     C00111                56  ...         Medium  2026-04-07 12:16:01
+1     C00112                46  ...            Low  2026-04-07 12:16:01
+2     C00113                 9  ...           High  2026-04-07 12:16:01
+3     C00114                31  ...            Low  2026-04-07 12:16:01
+4     C00115                 8  ...         Medium  2026-04-07 12:16:01
+
+[5 rows x 11 columns]
+
+✅ Data saved to data/raw/customer_data.csv
+  CustomerID  AccountAgeMonths  ...  DiscountUsage          GeneratedAt
+0     C00121                 6  ...         Medium  2026-04-07 12:17:01
+1     C00122                35  ...           High  2026-04-07 12:17:01
+2     C00123                49  ...         Medium  2026-04-07 12:17:01
+3     C00124                58  ...         Medium  2026-04-07 12:17:01
+4     C00125                16  ...           High  2026-04-07 12:17:01
+
+[5 rows x 11 columns]
+
+✅ Data saved to data/raw/customer_data.csv
+  CustomerID  AccountAgeMonths  ...  DiscountUsage          GeneratedAt
+0     C00131                15  ...            Low  2026-04-07 12:18:00
+1     C00132                31  ...           High  2026-04-07 12:18:00
+2     C00133                26  ...           High  2026-04-07 12:18:00
+3     C00134                44  ...         Medium  2026-04-07 12:18:00
+4     C00135                 9  ...            Low  2026-04-07 12:18:00
+
+[5 rows x 11 columns]
+
+✅ Data saved to data/raw/customer_data.csv
+  CustomerID  AccountAgeMonths  ...  DiscountUsage          GeneratedAt
+0     C00141                41  ...         Medium  2026-04-07 12:19:01
+1     C00142                51  ...            Low  2026-04-07 12:19:01
+2     C00143                29  ...         Medium  2026-04-07 12:19:01
+3     C00144                49  ...            Low  2026-04-07 12:19:01
+4     C00145                 4  ...           High  2026-04-07 12:19:01
+
+[5 rows x 11 columns]
+
+✅ Data saved to data/raw/customer_data.csv
+  CustomerID  AccountAgeMonths  ...  DiscountUsage          GeneratedAt
+0     C00151                37  ...            Low  2026-04-07 12:20:02
+1     C00152                31  ...           High  2026-04-07 12:20:02
+2     C00153                50  ...         Medium  2026-04-07 12:20:02
+3     C00154                 7  ...            Low  2026-04-07 12:20:02
+4     C00155                24  ...            Low  2026-04-07 12:20:02
+
+[5 rows x 11 columns]
+
+✅ Data saved to data/raw/customer_data.csv
